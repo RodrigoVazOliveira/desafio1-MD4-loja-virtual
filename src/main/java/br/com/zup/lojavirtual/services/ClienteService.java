@@ -14,4 +14,13 @@ public class ClienteService {
         clientes.add(cliente);
         return cliente;
     }
+
+    public Cliente pesquisarClientePorCpf(String cpf) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getCpf().equalsIgnoreCase(cpf)) {
+                return cliente;
+            }
+        }
+        throw new RuntimeException("Nenhum cliente foi encontrado com CPF: " + cpf);
+    }
 }
