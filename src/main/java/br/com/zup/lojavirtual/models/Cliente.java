@@ -14,7 +14,7 @@ public class Cliente {
 
     @NotNull(message = "O campo CPF deve ser fornecido!")
     @NotEmpty(message = "O CPF deve ser informado!")
-    @CPF(message = "O CPF informado é inválido!s")
+    @CPF(message = "O CPF informado é inválido!")
     private String cpf;
 
     @NotNull(message = "O campo e-mail deve ser fornecido!")
