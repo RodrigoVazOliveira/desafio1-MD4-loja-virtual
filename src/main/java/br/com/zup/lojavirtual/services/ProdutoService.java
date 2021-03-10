@@ -1,5 +1,6 @@
 package br.com.zup.lojavirtual.services;
 
+import br.com.zup.lojavirtual.dtos.ProdutoDTO;
 import br.com.zup.lojavirtual.exceptions.ProdutoDuplicadoExcecao;
 import br.com.zup.lojavirtual.exceptions.ProdutoListaVaziaExcecao;
 import br.com.zup.lojavirtual.models.Produto;
@@ -27,5 +28,23 @@ public class ProdutoService {
             return produtos;
         }
         throw new ProdutoListaVaziaExcecao("Não existe produto cadastrado!");
+    }
+
+    public List<Produto> buscarListaDeCompra(List<ProdutoDTO> produtoDTOs) {
+        List<Produto> produtosCompra = null;
+
+        for (ProdutoDTO produtoDTO : produtoDTOs) {
+            for (Produto produto : this.produtos) {
+                if (produto.getNome().equalsIgnoreCase(produtoDTO.getNome())) {
+                    produtosCompra.add(produto);
+                }
+            }
+        }
+
+        if (produtosCompra.size() > 0) {
+            return produtosCompra;
+        }
+
+        throw new ProdutoListaVaziaExcecao("Os produtos na lista de compras não existem!");
     }
 }
