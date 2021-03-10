@@ -29,11 +29,22 @@ public class ManipuladorDeExcecao extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({RuntimeException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public List<ObjetoDeErro> getObjetosDeErro(MethodArgumentNotValidException ex) {
+    private List<ObjetoDeErro> getObjetosDeErro(MethodArgumentNotValidException ex) {
         List<ObjetoDeErro> objetoDeErros = ex.getBindingResult()
                 .getFieldErrors().stream()
                 .map(error -> new ObjetoDeErro(error.getDefaultMessage(), error.getField()))
                 .collect(Collectors.toList());
         return objetoDeErros;
+    }
+
+    @ExceptionHandler({ProdutoDuplicadoExcecao.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public RespostaDeErro produtoDuplicadoExcecao(ProdutoDuplicadoExcecao ex) {
+        ObjetoDeErro objetoDeErro = new ObjetoDeErro(
+                ex.getMessage(),
+                ex.getCampo()
+        );
+        RespostaDeErro respostaDeErro = new RespostaDeErro(ex.getTipoErro(), ex.getStatus(), ex.getRazao(),Arrays.asList(objetoDeErro));
+        return respostaDeErro;
     }
 }
