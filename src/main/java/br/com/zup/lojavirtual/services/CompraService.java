@@ -11,6 +11,9 @@ public class CompraService {
 
     private List<Compra> compras = new ArrayList<>();
 
-    
+    public Compra cadastrar(Compra compra) {
+        compras.add(compra);
+        return compra;
+    }
 
 }
