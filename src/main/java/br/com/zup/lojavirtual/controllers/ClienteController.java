@@ -2,12 +2,15 @@ package br.com.zup.lojavirtual.controllers;
 
 import br.com.zup.lojavirtual.models.Cliente;
 import br.com.zup.lojavirtual.services.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/clientes/")
 public class ClienteController {
+
+    @Autowired
     private ClienteService clienteService;
 
     @PostMapping
