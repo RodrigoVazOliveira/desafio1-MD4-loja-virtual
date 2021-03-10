@@ -1,5 +1,6 @@
 package br.com.zup.lojavirtual.services;
 
+import br.com.zup.lojavirtual.exceptions.ClienteDuplicadoExcecao;
 import br.com.zup.lojavirtual.models.Cliente;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +12,11 @@ public class ClienteService {
     private  List<Cliente> clientes = new ArrayList<>();
 
     public Cliente cadastrar(Cliente cliente) {
-        clientes.add(cliente);
-        return cliente;
-    }
-
-    private boolean validarClientePorEmailOuCpf(String email, String cpf) {
-
+        if (!clientes.contains(cliente)) {
+            clientes.add(cliente);
+            return cliente;
+        }
+        throw new ClienteDuplicadoExcecao("O CPF " + cliente.getCpf() + " ou e-mail " + cliente.getEmail() + " Já exliste na loja!")
     }
 
     public Cliente pesquisarClientePorCpf(String cpf) {
