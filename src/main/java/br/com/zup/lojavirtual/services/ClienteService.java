@@ -15,6 +15,10 @@ public class ClienteService {
         return cliente;
     }
 
+    private boolean validarClientePorEmailOuCpf(String email, String cpf) {
+
+    }
+
     public Cliente pesquisarClientePorCpf(String cpf) {
         for (Cliente cliente : clientes) {
             if (cliente.getCpf().equalsIgnoreCase(cpf)) {
