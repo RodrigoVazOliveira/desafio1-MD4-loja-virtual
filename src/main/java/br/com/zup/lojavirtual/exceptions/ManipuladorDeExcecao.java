@@ -15,4 +15,6 @@ public class ManipuladorDeExcecao extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         return super.handleMethodArgumentNotValid(ex, headers, status, request);
     }
+
+
 }
