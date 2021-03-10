@@ -28,5 +28,6 @@ public class ManipuladorDeExcecao extends ResponseEntityExceptionHandler {
                 .getFieldErrors().stream()
                 .map(error -> new ObjetoDeErro(error.getDefaultMessage(), error.getField()))
                 .collect(Collectors.toList());
+        return objetoDeErros;
     }
 }
