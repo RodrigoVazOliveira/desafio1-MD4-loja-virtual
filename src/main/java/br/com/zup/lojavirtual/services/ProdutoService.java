@@ -15,4 +15,11 @@ public class ProdutoService {
         produtos.add(produto);
         return produto;
     }
+
+    public List<Produto> mostrarProdutos() {
+        if (produtos.size() > 0) {
+            return produtos;
+        }
+        throw new RuntimeException("Não existe produto cadastrado!");
+    }
 }
