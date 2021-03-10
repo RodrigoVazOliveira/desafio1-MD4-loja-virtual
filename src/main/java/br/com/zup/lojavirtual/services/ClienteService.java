@@ -25,6 +25,7 @@ public class ClienteService {
                 return cliente;
             }
         }
+        
         throw new RuntimeException("Nenhum cliente foi encontrado com CPF: " + cpf);
     }
 }
