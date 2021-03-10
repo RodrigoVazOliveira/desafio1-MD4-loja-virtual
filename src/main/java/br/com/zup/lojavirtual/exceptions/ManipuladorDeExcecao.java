@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,7 +45,7 @@ public class ManipuladorDeExcecao extends ResponseEntityExceptionHandler {
                 ex.getMessage(),
                 ex.getCampo()
         );
-        RespostaDeErro respostaDeErro = new RespostaDeErro(ex.getTipoErro(), ex.getStatus(), ex.getRazao(),Arrays.asList(objetoDeErro));
+        RespostaDeErro respostaDeErro = new RespostaDeErro(ex.getTipoErro(), ex.getStatus(), ex.getRazao(), Arrays.asList(objetoDeErro));
         return respostaDeErro;
     }
 }
