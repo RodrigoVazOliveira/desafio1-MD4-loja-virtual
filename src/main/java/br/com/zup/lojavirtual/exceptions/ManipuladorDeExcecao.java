@@ -51,7 +51,7 @@ public class ManipuladorDeExcecao extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({ProdutoListaVaziaExcecao.class})
     @ResponseStatus(HttpStatus.OK)
-    public RespostaDeErro produtoListaVaziaExcecao(ProdutoListaVaziaExcecao exx) {
+    public RespostaDeErro produtoListaVaziaExcecao(ProdutoListaVaziaExcecao ex) {
         ObjetoDeErro objetoDeErro = new ObjetoDeErro(
                 ex.getMessage(),
                 ex.getCampo()

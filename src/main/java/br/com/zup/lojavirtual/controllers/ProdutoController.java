@@ -26,10 +26,6 @@ public class ProdutoController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Produto> mostrarProdutos() {
-        try {
-            return produtoService.mostrarProdutos();
-        } catch (RuntimeException e) {
-            throw new ResponseStatusException(HttpStatus.OK, e.getMessage());
-        }
+        return produtoService.mostrarProdutos();
     }
 }

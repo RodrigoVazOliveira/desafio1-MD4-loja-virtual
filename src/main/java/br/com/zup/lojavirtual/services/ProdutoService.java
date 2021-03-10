@@ -1,6 +1,7 @@
 package br.com.zup.lojavirtual.services;
 
 import br.com.zup.lojavirtual.exceptions.ProdutoDuplicadoExcecao;
+import br.com.zup.lojavirtual.exceptions.ProdutoListaVaziaExcecao;
 import br.com.zup.lojavirtual.models.Produto;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,6 @@ public class ProdutoService {
         if (produtos.size() > 0) {
             return produtos;
         }
-        throw new RuntimeException("Não existe produto cadastrado!");
+        throw new ProdutoListaVaziaExcecao("Não existe produto cadastrado!");
     }
 }
