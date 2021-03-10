@@ -6,20 +6,20 @@ import java.util.List;
 /**
 * responsavel por montar a resposta de validação de campos
 * */
-public class RespotaDeErro {
+public class RespostaDeErro {
     private String tipoDeErro;
     private int codigoDoErro;
     private String statusCode;
     private List<ObjetoDeErro> objetoDeErro;
 
-    public RespotaDeErro(String tipoDeErro, int codigoDoErro, String statusCode, List<ObjetoDeErro> objetoDeErro) {
+    public RespostaDeErro(String tipoDeErro, int codigoDoErro, String statusCode, List<ObjetoDeErro> objetoDeErro) {
         this.tipoDeErro = tipoDeErro;
         this.codigoDoErro = codigoDoErro;
         this.statusCode = statusCode;
         this.objetoDeErro = objetoDeErro;
     }
 
-    public RespotaDeErro() {
+    public RespostaDeErro() {
     }
 
     public String getTipoDeErro() {
