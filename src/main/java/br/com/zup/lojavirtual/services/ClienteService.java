@@ -9,4 +9,9 @@ import java.util.List;
 @Service
 public class ClienteService {
     private  List<Cliente> clientes = new ArrayList<>();
+
+    public Cliente cadastrar(Cliente cliente) {
+        clientes.add(cliente);
+        return cliente;
+    }
 }
