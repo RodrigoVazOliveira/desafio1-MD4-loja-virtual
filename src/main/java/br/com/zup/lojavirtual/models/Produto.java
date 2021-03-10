@@ -1,19 +1,21 @@
 package br.com.zup.lojavirtual.models;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class Produto {
 
-    @NotNull(message = "O nome não foi informado!")
+    @NotNull(message = "O campo nome não foi informado!")
     @NotEmpty(message = "O nome não foi preenchido!")
     private String nome;
 
-    @NotNull(message = "O preço não foi indicado!")
-    @NotEmpty(message = "O preço deve ser preenchido!")
+    @NotNull(message = "O campo preço não foi informado!")
+    @DecimalMin("0.0")
     private Double preco;
 
+    @NotNull(message = "O campo quntidade não foi informado")
     @Min(value = 1, message = "A quantidade deve ser maior do que zero!")
     private int quantidade;
 
