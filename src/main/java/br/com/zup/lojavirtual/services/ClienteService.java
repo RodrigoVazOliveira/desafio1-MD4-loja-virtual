@@ -16,7 +16,7 @@ public class ClienteService {
             clientes.add(cliente);
             return cliente;
         }
-        throw new ClienteDuplicadoExcecao("O CPF " + cliente.getCpf() + " ou e-mail " + cliente.getEmail() + " Já exliste na loja!")
+        throw new ClienteDuplicadoExcecao("O CPF " + cliente.getCpf() + " ou e-mail " + cliente.getEmail() + " Já exliste na loja!");
     }
 
     public Cliente pesquisarClientePorCpf(String cpf) {
