@@ -1,5 +1,9 @@
 package br.com.zup.lojavirtual.exceptions;
 
+
+/**
+ * responsável modelo de objeto de exceção de validação de cmapos
+ * */
 public class ObjetoDeErro {
     private String mensagem;
     private String campo;
