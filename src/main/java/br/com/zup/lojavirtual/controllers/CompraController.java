@@ -33,4 +33,10 @@ public class CompraController {
         List<Produto> produtos = produtoService.buscarListaDeCompra(compraDTO.getProdutos());
         return compraService.cadastrar(compraDTO.converterCompraDtoParaCompra(cliente, produtos));
     }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<Compra> mostrarTodasAsCompras() {
+        return compraService.mostrarTodasAsCompras();
+    }
 }
