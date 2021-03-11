@@ -1,5 +1,6 @@
 package br.com.zup.lojavirtual.services;
 
+import br.com.zup.lojavirtual.exceptions.CompraVaziaExcecao;
 import br.com.zup.lojavirtual.models.Compra;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,14 @@ public class CompraService {
     public Compra cadastrar(Compra compra) {
         compras.add(compra);
         return compra;
+    }
+
+    public List<Compra> mostrarTodasAsCompras() {
+        if (this.compras.size() > 0) {
+            return this.compras;
+        }
+
+        throw new CompraVaziaExcecao("Não existe compras cadastradas!");
     }
 
 }
