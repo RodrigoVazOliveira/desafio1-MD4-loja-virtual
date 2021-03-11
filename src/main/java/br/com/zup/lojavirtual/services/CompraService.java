@@ -25,4 +25,26 @@ public class CompraService {
         throw new CompraVaziaExcecao("Não existe compras cadastradas!");
     }
 
+    public List<Compra> pesquisarComprasPorCpf(String cpf) {
+        List<Compra> listaDeCompras = procurarPorCpf(cpf);
+
+        if (listaDeCompras > 0) {
+            return listaDeCompras;
+        }
+
+        throw new CompraVaziaExcecao("Nenhuma compra foi realizada como CPF " + cpf);
+    }
+
+    private List<Compra> procurarPorCpf(String cpf) {
+        List<Compra> listaDeCompras = new ArrayList<>();
+
+        for (Compra compra : this.compras) {
+            if (compra.getCliente().getCpf().equalsIgnoreCase(cpf)) {
+                listaDeCompras.add(compra);
+            }
+        }
+
+        return listaDeCompras;
+    }
+
 }
