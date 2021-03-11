@@ -39,7 +39,7 @@ public class ManipuladorDeExcecao extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler({ProdutoDuplicadoExcecao.class})
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     public RespostaDeErro produtoDuplicadoExcecao(ProdutoDuplicadoExcecao ex) {
         ObjetoDeErro objetoDeErro = new ObjetoDeErro(
                 ex.getMessage(),
@@ -61,7 +61,7 @@ public class ManipuladorDeExcecao extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler({ClienteDuplicadoExcecao.class})
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     public RespostaDeErro clienteDuplicadoExcecao(ClienteDuplicadoExcecao ex) {
         ObjetoDeErro objetoDeErro = new ObjetoDeErro(
                 ex.getMessage(),

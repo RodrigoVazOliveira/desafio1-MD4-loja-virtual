@@ -1,9 +1,9 @@
 package br.com.zup.lojavirtual.exceptions;
 
 public class ProdutoDuplicadoExcecao extends RuntimeException {
-    private int Status = 400;
+    private int Status = 422;
     private String campo = "Nome do produto";
-    private String razao = "Bad Request";
+    private String razao = "Unprocessable Entity";
     private String tipoErro = "Produto encontrado!";
 
     public ProdutoDuplicadoExcecao(String message) {
