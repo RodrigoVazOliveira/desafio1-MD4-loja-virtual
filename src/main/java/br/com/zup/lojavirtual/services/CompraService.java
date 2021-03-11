@@ -35,6 +35,12 @@ public class CompraService {
         throw new CompraVaziaExcecao("Nenhuma compra foi realizada como CPF " + cpf);
     }
 
+    /**
+     * Criar um lista de compras com o cpf passado por parametro
+     * caso ele encontre alguma compra com o cpf.
+     * @param cpf
+     * @return List<Compra>
+     * */
     private List<Compra> procurarPorCpf(String cpf) {
         List<Compra> listaDeCompras = new ArrayList<>();
 
