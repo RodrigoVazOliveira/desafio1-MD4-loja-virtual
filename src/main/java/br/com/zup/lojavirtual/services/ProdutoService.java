@@ -29,13 +29,13 @@ public class ProdutoService {
         if (produtos.size() > 0) {
             return produtos;
         }
-        throw new ProdutoListaVaziaExcecao("Não existe produto cadastrado!");
+        throw new ProdutoListaVaziaExcecao("Não existem produtos cadastrados!");
     }
 
     /**
      * buscar os produtos pelos nomes de produtos que foram passado como produtoDTO
      * atráves do método criarListaDeProdutoDeCompra gerando uma nova lista
-     * com os produtos de compra
+     * com os produtos que o cliente deseja comprar
      * @param produtoDTOs
      * @return List<Produto>
      * */

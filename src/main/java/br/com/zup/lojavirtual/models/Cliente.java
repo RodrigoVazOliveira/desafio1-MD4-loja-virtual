@@ -1,5 +1,6 @@
 package br.com.zup.lojavirtual.models;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.Email;
@@ -11,6 +12,7 @@ public class Cliente {
 
     @NotNull(message = "O campo nome deve ser fornecido!")
     @NotEmpty(message = "O nome deve ser informado!")
+    @Length(min = 3, "O nome deve possuir pelo menos 3 letras")
     private String nome;
 
     @NotNull(message = "O campo CPF deve ser fornecido!")
