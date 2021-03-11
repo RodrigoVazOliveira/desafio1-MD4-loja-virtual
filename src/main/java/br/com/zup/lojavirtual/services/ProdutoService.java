@@ -55,7 +55,7 @@ public class ProdutoService {
      * @return List<Produto>
      * */
     private List<Produto> criarListaDeProdutoDeCompra(List<ProdutoDTO> produtoDTOs) {
-        List<Produto> produtosCompra = null;
+        List<Produto> produtosCompra = new ArrayList<>();
 
         for (ProdutoDTO produtoDTO : produtoDTOs) {
             for (Produto produto : this.produtos) {
