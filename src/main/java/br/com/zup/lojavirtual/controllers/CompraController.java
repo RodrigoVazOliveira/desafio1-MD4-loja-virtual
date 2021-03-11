@@ -39,4 +39,10 @@ public class CompraController {
     public List<Compra> mostrarTodasAsCompras() {
         return compraService.mostrarTodasAsCompras();
     }
+
+    @GetMapping("{cpf}/")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Compra> pesquisarComprasPorCpf(@PathVariable String cpf) {
+        return compraService.pesquisarComprasPorCpf(cpf);
+    }
 }
