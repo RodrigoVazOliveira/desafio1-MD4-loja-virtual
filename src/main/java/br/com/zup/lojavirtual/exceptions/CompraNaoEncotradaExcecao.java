@@ -1,16 +1,16 @@
 package br.com.zup.lojavirtual.exceptions;
 
-public class CompraVaziaExcecao extends RuntimeException {
-    private int Status = 200;
-    private String campo = "";
-    private String razao = "Ok";
-    private String tipoErro = "Lista de compras vazias";
+public class CompraNaoEncotradaExcecao extends RuntimeException {
+    private int Status = 400;
+    private String campo = "CPF";
+    private String razao = "Bad Request";
+    private String tipoErro = "Nenhuma compra foi encontrada!";
 
-    public CompraVaziaExcecao(String message) {
+    public CompraNaoEncotradaExcecao(String message) {
         super(message);
     }
 
-    public CompraVaziaExcecao() {
+    public CompraNaoEncotradaExcecao() {
     }
 
     public int getStatus() {
