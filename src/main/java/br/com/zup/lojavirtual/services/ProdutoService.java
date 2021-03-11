@@ -30,6 +30,13 @@ public class ProdutoService {
         throw new ProdutoListaVaziaExcecao("Não existe produto cadastrado!");
     }
 
+    /**
+     * buscar os produtos pelos nomes de produtos que foram passado como produtoDTO
+     * atráves do método criarListaDeProdutoDeCompra gerando uma nova lista
+     * com os produtos de compra
+     * @param produtoDTOs
+     * @return List<Produto>
+     * */
     public List<Produto> buscarListaDeCompra(List<ProdutoDTO> produtoDTOs) {
         List<Produto> produtosCompra = criarListaDeProdutoDeCompra(produtoDTOs);
 
@@ -40,6 +47,13 @@ public class ProdutoService {
         throw new ProdutoListaVaziaExcecao("Os produtos na lista de compras não existem!");
     }
 
+    /**
+     * O método criar uma lista de produtos baseado no nome que foi passado na DTO.
+     * Percorrendo a lista de produtos propriamente dito, criando uma nova lista com
+     * os produtos que são iguais aos nomes passados na DTO.
+     * @param produtoDTOs
+     * @return List<Produto>
+     * */
     private List<Produto> criarListaDeProdutoDeCompra(List<ProdutoDTO> produtoDTOs) {
         List<Produto> produtosCompra = null;
 
