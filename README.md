@@ -5,7 +5,7 @@ Projeto básico de uma API de e-commerce.
 
 ### Produtos
 
-URL   | METÓDO   | FUNÇÃO | DADOS DE ENVIO |
+URL   | MÉTODO   | FUNÇÃO | DADOS DE ENVIO |
 ------|----------|--------|-------|
 produtos/ | POST | Cadastrar produtos | json |
 produtos/ | GET | mostrar todos os produtos | não tem |
@@ -20,7 +20,7 @@ produtos/ | GET | mostrar todos os produtos | não tem |
 ```
 ### Clientes
 
-URL   | METÓDO   | FUNÇÃO | DADOS DE ENVIO |
+URL   | MÉTODO   | FUNÇÃO | DADOS DE ENVIO |
 ------|----------|--------|-------|
 clientes/ | POST | Cadastrar um novo cliente | json |
 clientes/{cpf}/ | GET | retornar o cliente com seu cpf | não tem |
@@ -35,7 +35,7 @@ clientes/{cpf}/ | GET | retornar o cliente com seu cpf | não tem |
 ```
 ### Compras
 
-URL   | METÓDO   | FUNÇÃO | DADOS DE ENVIO |
+URL   | MÉTODO   | FUNÇÃO | DADOS DE ENVIO |
 ------|----------|--------|-------|
 compras/ | POST | Cadastrar uma nova compra | json |
 compras/{cpf}/ | GET | retornar as compras de um deteminado cliente pelo CPF | não tem |
