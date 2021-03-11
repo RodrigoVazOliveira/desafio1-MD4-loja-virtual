@@ -70,4 +70,15 @@ public class ManipuladorDeExcecao extends ResponseEntityExceptionHandler {
         RespostaDeErro respostaDeErro = new RespostaDeErro(ex.getTipoErro(), ex.getStatus(), ex.getRazao(), Arrays.asList(objetoDeErro));
         return respostaDeErro;
     }
+
+    @ExceptionHandler({CompraVaziaExcecao.class})
+    @ResponseStatus(HttpStatus.OK)
+    public RespostaDeErro produtoListaVaziaExcecao(CompraVaziaExcecao ex) {
+        ObjetoDeErro objetoDeErro = new ObjetoDeErro(
+                ex.getMessage(),
+                ex.getCampo()
+        );
+        RespostaDeErro respostaDeErro = new RespostaDeErro(ex.getTipoErro(), ex.getStatus(), ex.getRazao(), Arrays.asList(objetoDeErro));
+        return respostaDeErro;
+    }
 }
