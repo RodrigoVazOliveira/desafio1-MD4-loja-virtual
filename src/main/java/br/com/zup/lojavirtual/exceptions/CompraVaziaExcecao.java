@@ -4,7 +4,7 @@ public class CompraVaziaExcecao extends RuntimeException {
     private int Status = 200;
     private String campo = "";
     private String razao = "Ok";
-    private String tipoErro = "Lista de compras vazias";
+    private String tipoErro = "Lista de compras vazia";
 
     public CompraVaziaExcecao(String message) {
         super(message);

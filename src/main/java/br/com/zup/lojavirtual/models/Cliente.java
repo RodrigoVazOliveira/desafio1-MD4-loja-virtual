@@ -12,7 +12,7 @@ public class Cliente {
 
     @NotNull(message = "O campo nome deve ser fornecido!")
     @NotEmpty(message = "O nome deve ser informado!")
-    @Length(min = 3, "O nome deve possuir pelo menos 3 letras")
+    @Length(min = 3, message = "O nome deve possuir pelo menos 3 letras")
     private String nome;
 
     @NotNull(message = "O campo CPF deve ser fornecido!")
