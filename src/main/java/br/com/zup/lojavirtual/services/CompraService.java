@@ -28,7 +28,7 @@ public class CompraService {
     public List<Compra> pesquisarComprasPorCpf(String cpf) {
         List<Compra> listaDeCompras = procurarPorCpf(cpf);
 
-        if (listaDeCompras > 0) {
+        if (listaDeCompras.size() > 0) {
             return listaDeCompras;
         }
 
