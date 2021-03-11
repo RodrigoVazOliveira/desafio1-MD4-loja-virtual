@@ -31,6 +31,16 @@ public class ProdutoService {
     }
 
     public List<Produto> buscarListaDeCompra(List<ProdutoDTO> produtoDTOs) {
+        List<Produto> produtosCompra = criarListaDeProdutoDeCompra(produtoDTOs);
+
+        if (produtosCompra.size() > 0) {
+            return produtosCompra;
+        }
+
+        throw new ProdutoListaVaziaExcecao("Os produtos na lista de compras não existem!");
+    }
+
+    private List<Produto> criarListaDeProdutoDeCompra(List<ProdutoDTO> produtoDTOs) {
         List<Produto> produtosCompra = null;
 
         for (ProdutoDTO produtoDTO : produtoDTOs) {
@@ -41,10 +51,7 @@ public class ProdutoService {
             }
         }
 
-        if (produtosCompra.size() > 0) {
-            return produtosCompra;
-        }
-
-        throw new ProdutoListaVaziaExcecao("Os produtos na lista de compras não existem!");
+        return produtosCompra;
     }
+
 }
