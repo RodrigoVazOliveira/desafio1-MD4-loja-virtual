@@ -82,7 +82,7 @@ public class ManipuladorDeExcecao extends ResponseEntityExceptionHandler {
         return respostaDeErro;
     }
 
-    @ExceptionHandler({CompraVaziaExcecao.class})
+    @ExceptionHandler({CompraNaoEncotradaExcecao.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public RespostaDeErro compraNaoEncotradaExcecao(CompraNaoEncotradaExcecao ex) {
         ObjetoDeErro objetoDeErro = new ObjetoDeErro(
