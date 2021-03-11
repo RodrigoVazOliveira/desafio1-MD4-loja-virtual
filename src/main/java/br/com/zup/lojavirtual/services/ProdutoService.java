@@ -2,7 +2,9 @@ package br.com.zup.lojavirtual.services;
 
 import br.com.zup.lojavirtual.dtos.ProdutoDTO;
 import br.com.zup.lojavirtual.exceptions.ProdutoDuplicadoExcecao;
+import br.com.zup.lojavirtual.exceptions.ProdutoEmFaltaExcecao;
 import br.com.zup.lojavirtual.exceptions.ProdutoListaVaziaExcecao;
+import br.com.zup.lojavirtual.models.Compra;
 import br.com.zup.lojavirtual.models.Produto;
 import org.springframework.stereotype.Service;
 
@@ -44,13 +46,14 @@ public class ProdutoService {
             return produtosCompra;
         }
 
-        throw new ProdutoListaVaziaExcecao("Os produtos na lista de compras não existem!");
+        throw new ProdutoListaVaziaExcecao("Os produtos " + produtoDTOs + " na lista de compras não existem!");
     }
 
     /**
      * O método criar uma lista de produtos baseado no nome que foi passado na DTO.
      * Percorrendo a lista de produtos propriamente dito, criando uma nova lista com
      * os produtos que são iguais aos nomes passados na DTO.
+     * Ao adiconar na lista de produtos diminui a quantidade do produto
      * @param produtoDTOs
      * @return List<Produto>
      * */
@@ -59,13 +62,46 @@ public class ProdutoService {
 
         for (ProdutoDTO produtoDTO : produtoDTOs) {
             for (Produto produto : this.produtos) {
-                if (produto.getNome().equalsIgnoreCase(produtoDTO.getNome())) {
-                    produtosCompra.add(produto);
-                }
+                validarProduto(produtoDTO, produto, produtosCompra);
             }
         }
 
         return produtosCompra;
     }
 
+    /**
+     * responsável por validar se o produto que cliente deseja
+     * e se ele está disponível
+     * @param produtoDTO
+     * @param produto
+     * @param produtosCompra
+     * */
+    private void validarProduto(ProdutoDTO produtoDTO, Produto produto, List<Produto> produtosCompra) {
+        if (produto.getNome().equalsIgnoreCase(produtoDTO.getNome())
+                && verificarDisponibilidadeProduto(produto)) {
+            ajustarQuantidadeDoProduto(produto);
+            produtosCompra.add(produto);
+        }
+    }
+
+    /**
+     * responsável pora diminuir o produto ao compra
+     * @param produto
+     * */
+    private void ajustarQuantidadeDoProduto(Produto produto) {
+        produto.setQuantidade(produto.getQuantidade()-1);
+    }
+
+    /**
+     * responsável por verificar se a quantidade do produto é maior que 0.
+     * caso seja 0, será retornado um exceção
+     * @param produto
+     * @return boolean
+     * */
+    private boolean verificarDisponibilidadeProduto(Produto produto) {
+        if (produto.getQuantidade() > 0) {
+            return true;
+        }
+        throw new ProdutoEmFaltaExcecao("O produto " + produto.getNome() + " está em falta!");
+    }
 }
